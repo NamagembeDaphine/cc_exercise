@@ -4,10 +4,9 @@ import numpy as np
 
 app = Flask(__name__)
 
-url = input (' Please Enter Image URL: ')
-
 @app.route('/')
 def display_image():
+    url = input (' Please Enter Image URL: ')
     url_response = urllib.request.urlopen(url)
     img = np.array(bytearray(url_response.read()), dtype=np.uint8)
     return img
